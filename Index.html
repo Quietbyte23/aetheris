@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aetheris // Ops Console</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       FUNDAL CINEMATIC — 10 STRATURI
+       ============================================================ -->
+
+  <!-- 1. Aurora fluidă (5 blob-uri) -->
+  <div class="bg-aurora">
+    <div class="aurora a1"></div>
+    <div class="aurora a2"></div>
+    <div class="aurora a3"></div>
+    <div class="aurora a4"></div>
+    <div class="aurora a5"></div>
+  </div>
+
+  <!-- 2. Grid 3D perspective (TRON) -->
+  <div class="bg-grid3d">
+    <div class="grid3d-plane"></div>
+    <div class="grid3d-plane plane-2"></div>
+  </div>
+
+  <!-- 3. Grid 2D subtil -->
+  <div class="bg-grid"></div>
+
+  <!-- 4. Noise texture -->
+  <div class="bg-noise"></div>
+
+  <!-- 5. Canvase: matrix + particule + constelații -->
+  <canvas id="rain"></canvas>
+  <canvas id="particles"></canvas>
+  <canvas id="constellation"></canvas>
+
+  <!-- 6. Shooting stars -->
+  <div class="bg-stars">
+    <div class="star star-1"></div>
+    <div class="star star-2"></div>
+    <div class="star star-3"></div>
+    <div class="star star-4"></div>
+    <div class="star star-5"></div>
+  </div>
+
+  <!-- 7. Vignette + scanlines -->
+  <div class="bg-vignette"></div>
+  <div class="bg-scanlines"></div>
+
+  <!-- 8. Spotlight mouse -->
+  <div class="bg-spotlight" id="spotlight"></div>
+
+  <!-- 9. Floating particles DOM (mici scântei care plutesc) -->
+  <div class="bg-floaties" id="floaties"></div>
+
+  <!-- 10. Aurora bottom glow (linie de lumină jos) -->
+  <div class="bg-bottom-glow"></div>
+
+
+  <div class="page">
+
+    <!-- ============================================================
+         NAVBAR
+         ============================================================ -->
+    <nav class="nav">
+      <div class="nav-in">
+        <a href="#top" class="logo">
+          <span class="logo-mark">⌘</span> Qu1etbyte
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#iphone">iPhone</a></li>
+          <li><a href="#macbook">MacBook</a></li>
+          <li><a href="#term">Terminal</a></li>
+          <li><a href="#research">Research</a></li>
+        </ul>
+
+        <div class="nav-btns">
+          <button class="icon-btn" aria-label="Search">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <circle cx="11" cy="11" r="7"/>
+              <path d="m20 20-3.5-3.5"/>
+            </svg>
+          </button>
+          <button class="icon-btn" aria-label="Cart">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M6 8h12l-1 12H7L6 8Z"/>
+              <path d="M9 8V6a3 3 0 0 1 6 0v2"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <header class="hero" id="top">
+
+      <div class="hero-tag">
+        <span class="dot"></span>
+        <span class="tag-text">Operational Status // Cluster Decryption Active</span>
+      </div>
+
+      <h1 class="hero-h1">
+        <span class="line-1">Programming</span>
+        <span class="line-2 glitch" data-text="Void.">Void.</span>
+        <span class="hero-h1-accent">Pro, refined.</span>
+      </h1>
+
+      <p class="hero-sub">
+        The most advanced offensive security console ever engineered.
+        Built on titanium. Wrapped in silicon. Powered by silence.
+      </p>
+
+      <div class="type-line">
+        <span id="typer"></span><span class="cursor"></span>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#iphone" class="btn green">
+          Explore iPhone
+          <span class="btn-arrow">→</span>
+        </a>
+        <a href="#term" class="btn outline">
+          Try Terminal
+        </a>
+      </div>
+
+      <!-- stats strip -->
+      <div class="stats-strip">
+        <div class="stat">
+          <div class="stat-val" data-count="247">0</div>
+          <div class="stat-lbl">Active Nodes</div>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat">
+          <div class="stat-val" data-count="99" data-suffix=".9%">0</div>
+          <div class="stat-lbl">Uptime</div>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat">
+          <div class="stat-val" data-count="1247">0</div>
+          <div class="stat-lbl">Threats Blocked</div>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat">
+          <div class="stat-val" data-count="4" data-prefix="0." data-suffix="ms">0</div>
+          <div class="stat-lbl">Latency</div>
+        </div>
+      </div>
+
+      <!-- device-uri -->
+      <div class="hero-stage">
+        <div class="stage-glow"></div>
+        <div class="stage-ring ring-1"></div>
+        <div class="stage-ring ring-2"></div>
+        <div class="stage-ring ring-3"></div>
+
+        <!-- iPhone -->
+        <div class="iphone" data-tilt>
+          <div class="iphone-body">
+            <div class="island"><div class="cam"></div></div>
+
+            <div class="iphone-screen">
+              <div class="screen-ui">
+                <div class="status-bar">
+                  <span>9:41</span>
+                  <span class="s-icons">▮▮▮ ⌁ ▰</span>
+                </div>
+
+                <div class="apps">
+                  <div class="app"></div>
+                  <div class="app"></div>
+                  <div class="app"></div>
+                  <div class="app"></div>
+                  <div class="app"></div>
+                  <div class="app"></div>
+                  <div class="app"></div>
+                  <div class="app"></div>
+                </div>
+
+                <div class="mini-term">
+                  <span class="mini-prompt">$</span>
+                  <span class="mini-text">aetheris --scan</span>
+                  <span class="mini-cursor">▮</span>
+                </div>
+              </div>
+              <div class="glare"></div>
+              <div class="glare sweep"></div>
+            </div>
+
+            <div class="side-btn"></div>
+            <div class="vol-btn"></div>
+          </div>
+          <div class="dev-shadow"></div>
+        </div>
+
+        <!-- MacBook -->
+        <div class="macbook" data-tilt>
+          <div class="mac-lid">
+            <div class="mac-screen">
+              <div class="mac-ui">
+
+                <div class="menu-bar">
+                  <span class="apple">⌘</span>
+                  <span>Qu1etbyte Ops</span>
+                  <span class="menu-spacer"></span>
+                  <span>File</span>
+                  <span>Edit</span>
+                  <span>View</span>
+                  <span>Terminal</span>
+                </div>
+
+<pre class="mac-term"><span class="tg">test@cluster-alpha</span><span class="td">:~$</span> <span class="tw">./init --secure</span>
+<span class="td">[ 0.001s ]</span> <span class="tg">✓</span> handshake complete
+<span class="td">[ 0.014s ]</span> <span class="tg">✓</span> node registry synced
+<span class="td">[ 0.221s ]</span> <span class="tg">✓</span> perimeter deployed
+<span class="tg">test@cluster-alpha</span><span class="td">:~$</span> <span class="tcursor">▮</span></pre>
+
+              </div>
+              <div class="glare"></div>
+              <div class="glare sweep"></div>
+            </div>
+          </div>
+          <div class="mac-base">
+            <div class="mac-notch"></div>
+            <div class="trackpad"></div>
+          </div>
+          <div class="dev-shadow"></div>
+        </div>
+
+      </div>
+
+      <div class="scroll-hint">
+        <span>Scroll</span>
+        <span class="scroll-line"></span>
+      </div>
+    </header>
+
+    <!-- ============================================================
+         IPHONE SECTION
+         ============================================================ -->
+    <section class="sect" id="iphone">
+      <div class="sect-in">
+
+        <div class="sect-tag reveal">02 // Mobile Operations</div>
+        <h2 class="sect-h2 reveal">
+          Qu1etbyte for iPhone.
+          <span class="sect-h2-accent">Total control. In your pocket.</span>
+        </h2>
+
+        <div class="split split-rev">
+
+          <div class="copy reveal">
+            <h3 class="copy-h3">The console, reimagined for the field.</h3>
+            <p class="copy-p">
+              Every operation your desktop console can execute, now runs natively on iPhone.
+              Full end-to-end encryption, biometric authentication, and remote node
+              orchestration — wrapped in aerospace-grade titanium.
+            </p>
+            <p class="copy-p">
+              Tap into live telemetry from any node in the cluster. Deploy countermeasures
+              with a gesture. Receive silent push alerts the moment a zero-day delivery
+              attempt is intercepted — before the world even knows it happened.
+            </p>
+            <ul class="checks">
+              <li><span class="chk">✓</span> A18 Pro secure enclave integration</li>
+              <li><span class="chk">✓</span> Real-time cluster telemetry streaming</li>
+              <li><span class="chk">✓</span> Biometric-gated command authorization</li>
+              <li><span class="chk">✓</span> Offline cryptographic key vault</li>
+            </ul>
+          </div>
+
+          <div class="visual reveal">
+            <div class="iphone prod-iphone" data-tilt>
+              <div class="iphone-body">
+                <div class="island"><div class="cam"></div></div>
+                <div class="iphone-screen">
+                  <div class="screen-ui alt">
+                    <div class="status-bar">
+                      <span>9:41</span>
+                      <span class="s-icons">▮▮▮ ⌁ ▰</span>
+                    </div>
+
+                    <div class="widget">
+                      <div class="w-label">CLUSTER STATUS</div>
+                      <div class="w-val">OPERATIONAL</div>
+                      <div class="w-bar"><div class="w-fill"></div></div>
+                    </div>
+
+                    <div class="widget">
+                      <div class="w-label">THREATS BLOCKED</div>
+                      <div class="w-val">1,247</div>
+                      <div class="w-bar"><div class="w-fill warn"></div></div>
+                    </div>
+                  </div>
+                  <div class="glare"></div>
+                  <div class="glare sweep"></div>
+                </div>
+                <div class="side-btn"></div>
+                <div class="vol-btn"></div>
+              </div>
+              <div class="dev-shadow"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         MACBOOK SECTION
+         ============================================================ -->
+    <section class="sect" id="macbook">
+      <div class="sect-in">
+
+        <div class="sect-tag reveal">03 // Desktop Command</div>
+        <h2 class="sect-h2 reveal">
+          Qu1etbyte for MacBook.
+          <span class="sect-h2-accent">The workstation that rewrites the rules.</span>
+        </h2>
+
+        <div class="split">
+
+          <div class="visual reveal">
+            <div class="macbook prod-mac" data-tilt>
+              <div class="mac-lid">
+                <div class="mac-screen">
+                  <div class="mac-ui alt">
+                    <div class="menu-bar">
+                      <span class="apple">⌘</span>
+                      <span>Operations Dashboard</span>
+                      <span class="menu-spacer"></span>
+                      <span class="live-dot"></span>
+                      <span>Live</span>
+                    </div>
+
+                    <div class="dash">
+                      <div class="tile">
+                        <div class="t-label">NODES ACTIVE</div>
+                        <div class="t-val">247</div>
+                        <div class="spark">
+                          <span></span><span></span><span></span><span></span>
+                          <span></span><span></span><span></span><span></span>
+                        </div>
+                      </div>
+
+                      <div class="tile">
+                        <div class="t-label">LATENCY</div>
+                        <div class="t-val">0.4<span class="unit">ms</span></div>
+                        <div class="spark">
+                          <span></span><span></span><span></span><span></span>
+                          <span></span><span></span><span></span><span></span>
+                        </div>
+                      </div>
+
+                      <div class="tile wide">
+                        <div class="t-label">PERIMETER INTEGRITY</div>
+                        <div class="prog"><div class="prog-fill"></div></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="glare"></div>
+                  <div class="glare sweep"></div>
+                </div>
+              </div>
+              <div class="mac-base">
+                <div class="mac-notch"></div>
+                <div class="trackpad"></div>
+              </div>
+              <div class="dev-shadow"></div>
+            </div>
+          </div>
+
+          <div class="copy reveal">
+            <h3 class="copy-h3">Untethered. Uncompromised. Unstoppable.</h3>
+            <p class="copy-p">
+              The M-series silicon inside Qu1etbyte for MacBook isn't just fast — it's
+              purpose-built for cryptographic workloads that would melt a traditional
+              workstation. Machine-learning threat classification, memory-safe Rust
+              execution, and hardware-isolated secure enclaves all run in parallel.
+            </p>
+            <p class="copy-p">
+              All-day battery. A Liquid Retina XDR display tuned for terminal clarity.
+              And a keyboard that lets you issue a thousand commands before your coffee cools.
+            </p>
+            <ul class="checks">
+              <li><span class="chk">✓</span> M4 Max with 40-core GPU</li>
+              <li><span class="chk">✓</span> 128GB unified memory architecture</li>
+              <li><span class="chk">✓</span> Hardware-isolated secure enclave</li>
+              <li><span class="chk">✓</span> Up to 22 hours of operation</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TERMINAL
+         ============================================================ -->
+    <section class="sect term-sect" id="term">
+      <div class="term-in">
+
+        <div class="sect-tag reveal">04 // Live Terminal</div>
+        <h2 class="sect-h2 reveal">
+          Try it yourself.
+          <span class="sect-h2-accent">Real commands. Real feedback.</span>
+        </h2>
+
+        <div class="term-window reveal">
+          <div class="term-bar">
+            <span class="tdot red"></span>
+            <span class="tdot yellow"></span>
+            <span class="tdot green"></span>
+            <span class="term-name">test@cluster-alpha — zsh</span>
+          </div>
+
+          <div class="term-body" id="terminal">
+            <div class="term-out" id="term-out"></div>
+
+            <div class="term-input-row">
+              <span class="term-prompt">test@cluster-alpha:~$</span>
+              <input
+                type="text"
+                id="term-input"
+                class="term-input"
+                autocomplete="off"
+                spellcheck="false"
+                placeholder="type /help"
+                aria-label="Terminal input"
+              >
+            </div>
+          </div>
+        </div>
+
+        <p class="term-hint reveal">
+          Try: <code>/help</code> <code>/scan</code> <code>/status</code>
+          <code>/nodes</code> <code>/coffee</code> <code>/clear</code>
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         BENTO
+         ============================================================ -->
+    <main class="bento-sect" id="research">
+
+      <div class="bento-tag reveal">05 // Architectural Directives</div>
+      <div class="bento-h2 reveal">Operational Core &amp; Matrix Analysis</div>
+
+      <div class="bento-grid">
+
+        <div class="bento-card span-12 reveal" data-tilt>
+          <div class="card-glow"></div>
+          <div class="card-tag">core_directive_manifest.xml</div>
+          <h3>Advanced Offensive Security Research</h3>
+          <p>
+            Qu1etbyte Network operates at the absolute outer edge of experimental
+            vulnerability identification and cryptographic system modeling. Our active
+            field teams specialize in stress-testing hardened distributed environments,
+            simulating complex threat vectors, and engineering multi-layered protective
+            perimeters for sovereign decentralized infrastructure. By cross-examining
+            deep kernel architectures alongside evolving systemic design concepts, we
+            uncover hardware vulnerabilities before malicious elements can weaponize
+            them — guaranteeing end-to-end data safety across public internet pipelines.
+          </p>
+          <div class="card-code">SECURE_NODE_ALPHA</div>
+        </div>
+
+        <div class="bento-card span-7 reveal" data-tilt>
+          <div class="card-glow"></div>
+          <div class="card-tag">cryptographic_engine.rs</div>
+          <h3>Autonomous Distributed Decryption</h3>
+          <p>
+            Our core processing runtime is built upon a highly memory-safe,
+            ultra-low-latency asynchronous execution system. It dynamically handles
+            real-time structural analysis of incoming protocol packets across multiple
+            channels simultaneously. By combining specialized multi-threading mechanics
+            with custom cryptographic arithmetic arrays, the system isolates suspicious
+            memory processes inside virtual runtime safezones — without causing
+            computational drops or service degradation across the host server matrix.
+          </p>
+          <div class="card-code">RUST_ENGINE_V4</div>
+        </div>
+
+        <div class="bento-card span-5 reveal" data-tilt>
+          <div class="card-glow"></div>
+          <div class="card-tag">signal_payload.bin</div>
+          <h3>Telemetry Capture</h3>
+          <p>
+            From logging sub-atomic packet drops to inspecting isolated peripheral
+            registers, our real-time capture infrastructure functions completely
+            undetected beneath standard operating system trace levels. It intercepts
+            threat streams instantly, maintaining a clean, end-to-end record of advanced
+            zero-day delivery attempts.
+          </p>
+          <div class="card-code">0x8FBC9B0</div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer class="foot" id="nodes">
+      <div class="foot-in">
+        <div class="foot-logo">
+          <span class="logo-mark">⌘</span> Aetheris Collective
+        </div>
+        <p class="foot-line">Network Security Operations Console // Verified Node 2026</p>
+        <p class="foot-legal">
+          All operations conducted under sovereign cryptographic mandate.
+          Aetheris is a registered trademark of the Aetheris Collective.
+          Made by Qu1etbyte on Github.
+        </p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
